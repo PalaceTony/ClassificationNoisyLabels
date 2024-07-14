@@ -1,0 +1,6 @@
+__pycache__/
+data/
+outputs
+data/Wafer/TransformedWaterMapData.npz
+data/raw/MixedWM38.npz
+checkpoint/

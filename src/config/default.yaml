@@ -1,0 +1,41 @@
+defaults:
+  - _self_
+
+seed: 123
+num_class: 38
+
+robust_directly: False
+load_model_during_first_train: False
+
+NOW: ${now:%H-%M-%S}
+DAY: ${now:%m-%d}
+log_dir: outputs/${DAY}/${NOW}
+
+hydra:
+  run:
+    dir: ${log_dir}
+
+best_model_path: ${log_dir}
+best_model_name: best_model.pth
+
+dataset: Wafer
+data_path: data/Wafer
+
+batch_size: 64
+num_epochs: 100
+lr: 0.02
+warm_up: 10
+early_stopping_patience: 15
+
+noise_mode: sym
+
+alpha: 4
+lambda_u: 25
+p_threshold: 0.5
+T: 0.5
+r: 0.5
+
+q_length: 10
+
+warm_up_iter: 99999
+train_epoch_iter: 99999

@@ -1,0 +1,83 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "pred_2nets_reverse",
+      "type": "python",
+      "request": "launch",
+      "program": "${workspaceFolder}/src/pred_2nets_reverse/run.py",
+      "console": "integratedTerminal",
+      "args": [
+        "log_dir=outputs/${DAY}/debug/${NOW}",
+        "robust_directly=True",
+        "best_model_path=checkpoint/"
+      ]
+    },
+    {
+      "name": "pred_ind_net",
+      "type": "python",
+      "request": "launch",
+      "program": "${workspaceFolder}/src/pred_ind_net/run.py",
+      "console": "integratedTerminal",
+      "args": [
+        "log_dir=outputs/${DAY}/debug/${NOW}",
+        "robust_directly=True",
+        "best_model_path=checkpoint/"
+      ]
+    },
+    {
+      "name": "pred_2nets",
+      "type": "python",
+      "request": "launch",
+      "program": "${workspaceFolder}/src/pred_2nets/run.py",
+      "console": "integratedTerminal",
+      "args": [
+        "log_dir=outputs/${DAY}/debug/${NOW}",
+        "robust_directly=True",
+        "best_model_path=checkpoint/"
+      ]
+    },
+    {
+      "name": "Train_promix",
+      "type": "python",
+      "request": "launch",
+      "program": "${workspaceFolder}/src/run.py",
+      "console": "integratedTerminal",
+      "args": [
+        "log_dir=outputs/${DAY}/debug/${NOW}",
+        "num_epochs=5",
+        "warm_up=1",
+        "warm_up_iter=1",
+        "train_epoch_iter=1",
+        "early_stopping_patience=1",
+        "q_length=2"
+      ]
+    },
+    {
+      "name": "Train_from_robust",
+      "type": "python",
+      "request": "launch",
+      "program": "${workspaceFolder}/src/run_recent10_each_network.py",
+      "console": "integratedTerminal",
+      "args": [
+        "log_dir=outputs/${DAY}/debug/${NOW}",
+        "robust_directly=True",
+        // "load_model_during_first_train=True",
+        "best_model_path=checkpoint/"
+      ]
+    },
+    {
+      "name": "load_model_during_first_train",
+      "type": "python",
+      "request": "launch",
+      "program": "${workspaceFolder}/src/run.py",
+      "console": "integratedTerminal",
+      "args": [
+        "log_dir=outputs/${DAY}/debug/${NOW}",
+        // "robust_directly=True",
+        "load_model_during_first_train=True",
+        "best_model_path=checkpoint/"
+      ]
+    }
+  ]
+}
